@@ -13,6 +13,7 @@ public class WaveSpawner : MonoBehaviour {
     public Wave[] waves;
     public Transform[] spawnPoints;
     public float timeBetweenWaves;
+    public Transform parent;
 
     private Wave currentWave;
     private int currentWaveIndex;
@@ -39,7 +40,7 @@ public class WaveSpawner : MonoBehaviour {
 
             Enemy randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
             Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(randomEnemy, randomSpawnPoint.position, randomSpawnPoint.rotation);
+            Instantiate(randomEnemy, randomSpawnPoint.position, randomSpawnPoint.rotation,parent);
 
             isFinishedSpawning = i == (currentWave.count -1);
  

@@ -247,7 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemies:
-    - {fileID: 461114848535937540, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+    - {fileID: 9189464921608783687, guid: 55b777239db1e8143b0648fcfbeb1c21, type: 3}
+    - {fileID: 4601568769722082085, guid: b1381c7031e55b342ac10118eefd06c9, type: 3}
     count: 2
     timeBetweenSpawn: 0
   spawnPoints:
@@ -260,6 +261,7 @@ MonoBehaviour:
   - {fileID: 1622024889}
   - {fileID: 2126667074}
   timeBetweenWaves: 0
+  parent: {fileID: 1563782482}
 --- !u!4 &126972241
 Transform:
   m_ObjectHideFlags: 0
@@ -1762,12 +1764,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  fuel: 10
+  fuel: 50
   speed: 10
   maxHealth: 5
-  maxFuel: 10
-  fuelConsumptionInterval: 5
-  fuelConsumptionRate: 1
+  maxFuel: 50
+  fuelConsumptionInterval: 1
+  fuelConsumptionRate: 2
   tires:
   - {fileID: 673513268}
   - {fileID: 1217559211}
