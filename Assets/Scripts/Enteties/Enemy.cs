@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Immobile
 {
     [System.Serializable]
     public class ItemDrop
@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     public int health;
     public int damage;
+    public int waveMinLevel = 0;
 
     public ItemDrop[] drops;
 
@@ -18,8 +19,9 @@ public class Enemy : MonoBehaviour
     public Transform player;
     private new AudioSource audio;
 
-    public virtual void Start()
+    public override void Start()
     {
+        base.Start();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         audio = GetComponent<AudioSource>();
     }
@@ -40,7 +42,7 @@ public class Enemy : MonoBehaviour
         ItemDrop drop = drops[Random.Range(0, drops.Length)];
         if (randomNumber < drop.dropRate)
         {
-            Instantiate(drop.item, transform.position, transform.rotation, this.transform.parent);
+            Instantiate(drop.item, transform.position, transform.rotation, transform.parent);
         }
     }
 

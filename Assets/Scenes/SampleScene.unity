@@ -245,12 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c7d44d46b64db44ac1941e09579854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - enemies:
-    - {fileID: 9189464921608783687, guid: 55b777239db1e8143b0648fcfbeb1c21, type: 3}
-    - {fileID: 4601568769722082085, guid: b1381c7031e55b342ac10118eefd06c9, type: 3}
-    count: 2
-    timeBetweenSpawn: 0
+  enemies:
+  - {fileID: 9189464921608783687, guid: 55b777239db1e8143b0648fcfbeb1c21, type: 3}
+  - {fileID: 4601568769722082085, guid: b1381c7031e55b342ac10118eefd06c9, type: 3}
   spawnPoints:
   - {fileID: 1035654681}
   - {fileID: 607044865}
@@ -260,8 +257,9 @@ MonoBehaviour:
   - {fileID: 2013970241}
   - {fileID: 1622024889}
   - {fileID: 2126667074}
-  timeBetweenWaves: 0
-  parent: {fileID: 1563782482}
+  timeBetweenWaves: 2
+  timeBetweenSpawns: 1
+  count: 2
 --- !u!4 &126972241
 Transform:
   m_ObjectHideFlags: 0
@@ -2738,7 +2736,7 @@ GameObject:
   - component: {fileID: 1563782484}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

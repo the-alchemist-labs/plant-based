@@ -174,8 +174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   damage: 1
+  waveMinLevel: 0
   drops:
-  - dropRate: 100
+  - dropRate: 75
     item: {fileID: 2091221228385037987, guid: 3a1e742f2777feb42b5830b84d0983da, type: 3}
   player: {fileID: 0}
 --- !u!82 &8723863535117549802

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OilhPickup : MonoBehaviour
+public class OilhPickup : Immobile
 {
     public int fuelAmount;
 
