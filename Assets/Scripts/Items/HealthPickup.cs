@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+public class HealthPickup : Immobile
 {
     public int healthAmount;
 
