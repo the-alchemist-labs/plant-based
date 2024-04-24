@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 2cc6e99b19c0f8d4486642d0d7f89a07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   health: 1
   damage: 1
   drops:
-  - dropRate: 60
+  - dropRate: 100
     item: {fileID: 2091221228385037987, guid: 3a1e742f2777feb42b5830b84d0983da, type: 3}
   player: {fileID: 0}
 --- !u!82 &8723863535117549802
