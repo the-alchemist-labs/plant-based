@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147da91f525bd2a4b9b0d8a4df8b6401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuelAmount: 0
+  fuelAmount: 10
 --- !u!50 &6219427138517300989
 Rigidbody2D:
   serializedVersion: 4

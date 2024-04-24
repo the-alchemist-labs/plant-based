@@ -1953,9 +1953,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  fuel: 50
+  fuel: 40
   speed: 10
-  maxHealth: 5
+  maxHealth: 10
   maxFuel: 50
   fuelConsumptionInterval: 1
   fuelConsumptionRate: 2

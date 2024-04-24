@@ -29,17 +29,18 @@ public class Enemy : MonoBehaviour
         health -= damageAmount;
         if (health <= 0)
         {
-            Death(false);
+            Death(true);
         }
     }
 
     private void DropItem()
     {
+
         int randomNumber = Random.Range(0, 101);
         ItemDrop drop = drops[Random.Range(0, drops.Length)];
         if (randomNumber < drop.dropRate)
         {
-            Instantiate(drop.item, transform.position, transform.rotation);
+            Instantiate(drop.item, transform.position, transform.rotation, this.transform.parent);
         }
     }
 
