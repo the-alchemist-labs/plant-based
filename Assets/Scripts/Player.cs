@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public int health;
     public int fuel;
+    public float speed = 10;
+    public int maxHealth = 10;
+    public float fuelConsumptionInterval = 5f;
+    public int fuelConsumptionRate = 1;
 
     private Rigidbody2D rb;
     private Vector2 moveAmount;
-    private float speed = 10;
-
     private float fuelConsumptionTimer = 0f;
-    private float fuelConsumptionInterval = 5f;
-    private int fuelConsumptionRate = 1;
 
     void Start()
     {
@@ -40,8 +38,16 @@ public class Player : MonoBehaviour
         if (fuel > 0 && fuelConsumptionTimer >= fuelConsumptionInterval)
         {
             fuel -= fuelConsumptionRate;
-            print(fuel);
             fuelConsumptionTimer = 0f;
         }
+    }
+
+    void TakeDamage(int damageAmount) {
+        health = health - damageAmount > 0 ? 0 : health - damageAmount;
+    }
+
+    void HealHealth(int healAmount) {
+        int totalHealth = health + healAmount;
+        health = totalHealth > maxHealth ? maxHealth : totalHealth;
     }
 }
