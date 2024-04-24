@@ -1,14 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [System.Serializable]
+    public class ItemDrop {
+        public int dropRate;
+        public GameObject item;
+    }
+
     public int health;
     public int damage;
 
-    public int dropChance;
-    public GameObject[] drops;
+    public ItemDrop[] drops;
 
     [HideInInspector]
     public Transform player;
@@ -27,9 +30,9 @@ public class Enemy : MonoBehaviour
 
     private void DropItem() {
         int randomNumber = Random.Range(0, 101);
-        if (randomNumber < dropChance) {
-            GameObject drop = drops[Random.Range(0, drops.Length)];
-            Instantiate(drop, transform.position, transform.rotation);
+        ItemDrop drop = drops[Random.Range(0, drops.Length)];
+        if (randomNumber < drop.dropRate) {
+            Instantiate(drop.item, transform.position, transform.rotation);
         }
     }
 }
