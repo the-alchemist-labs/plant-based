@@ -43,8 +43,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damageAmount) {
+    public void TakeDamage(int damageAmount) {
         health = health - damageAmount < 0 ? 0 : health - damageAmount;
+        print(health);
     }
 
     public void HealHealth(int healAmount) {

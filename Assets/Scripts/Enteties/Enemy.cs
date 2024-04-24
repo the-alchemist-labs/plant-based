@@ -23,8 +23,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damageAmount) {
         health -= damageAmount;
         if (health <= 0) {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
             DropItem();
-            Destroy(gameObject);
+            Destroy(gameObject, audio.clip.length);
         }
     }
 
@@ -33,6 +35,13 @@ public class Enemy : MonoBehaviour
         ItemDrop drop = drops[Random.Range(0, drops.Length)];
         if (randomNumber < drop.dropRate) {
             Instantiate(drop.item, transform.position, transform.rotation);
+        }
+    }
+
+        private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            collision.gameObject.GetComponent<Player>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }
