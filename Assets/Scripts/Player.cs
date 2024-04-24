@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 moveAmount;
-    private float speed;
+    private float speed = 10;
+
+    private float fuelConsumptionTimer = 0f;
+    private float fuelConsumptionInterval = 5f;
+    private int fuelConsumptionRate = 1;
 
     void Start()
     {
-        speed = 10;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -21,9 +24,24 @@ public class Player : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveAmount = moveInput.normalized * speed;
+
+        UpdateFuel();
     }
 
-        void FixedUpdate() {
+    void FixedUpdate()
+    {
         rb.MovePosition(rb.position + moveAmount * Time.fixedDeltaTime);
+    }
+
+    void UpdateFuel()
+    {
+        fuelConsumptionTimer += Time.deltaTime;
+
+        if (fuel > 0 && fuelConsumptionTimer >= fuelConsumptionInterval)
+        {
+            fuel -= fuelConsumptionRate;
+            print(fuel);
+            fuelConsumptionTimer = 0f;
+        }
     }
 }
