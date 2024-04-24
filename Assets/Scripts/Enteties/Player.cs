@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         feulBar.value = fuel;
     }
 
-    void TakeDamage(int damageAmount) {
+    public void TakeDamage(int damageAmount) {
         health = health - damageAmount < 0 ? 0 : health - damageAmount;
         UpdateTireUI(health);
     }
