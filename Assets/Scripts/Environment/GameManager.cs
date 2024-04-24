@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class ScoreManager : MonoBehaviour
+
+public class GameManager : MonoBehaviour
 {
 
+    public float scrollSpeed; 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
 

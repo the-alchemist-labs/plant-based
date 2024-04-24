@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 379147479}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4e05cd149305d44aaf86fd7b1ead59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 1.8
   scoreText: {fileID: 607541927}
   highscoreText: {fileID: 1271030292}
   player: {fileID: 903902570}
@@ -2753,7 +2754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f6b4c2ca9113f4794f0c250184b3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.8
 --- !u!4 &1563782482
 Transform:
   m_ObjectHideFlags: 0

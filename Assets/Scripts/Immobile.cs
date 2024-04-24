@@ -8,9 +8,9 @@ public class Immobile : MonoBehaviour
     public virtual void Start()
     {
         backgroundSpeed = GameObject
-        .FindGameObjectWithTag("Background")
-        .GetComponent<MoveLeft>()
-        .speed;
+        .FindGameObjectWithTag("GameController")
+        .GetComponent<GameManager>()
+        .scrollSpeed;
 
         Destroy(gameObject, 10);
     }
