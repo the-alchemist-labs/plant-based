@@ -29,9 +29,7 @@ public class Enemy : MonoBehaviour
         health -= damageAmount;
         if (health <= 0)
         {
-            audio.Play();
-            DropItem();
-            Destroy(gameObject, audio.clip.length);
+            Death(false);
         }
     }
 
@@ -50,8 +48,19 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
-            audio.Play();
-            Destroy(gameObject);
+            Death(false);
         }
+    }
+
+    void Death(bool shouldDropItem = true)
+    {
+        if (shouldDropItem)
+        {
+            DropItem();
+        }
+
+        audio.Play();
+        GetComponent<Renderer>().enabled = false;
+        Destroy(gameObject, audio.clip.length);
     }
 }
