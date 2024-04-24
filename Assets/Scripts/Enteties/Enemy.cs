@@ -5,11 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
-    public float speed;
-    public float timeBetweenAttacks;
     public int damage;
-    public GameObject deathEffect;
-    public GameObject bloodStain;
 
     public int dropChance;
     public GameObject[] drops;
@@ -25,9 +21,6 @@ public class Enemy : MonoBehaviour
         health -= damageAmount;
         if (health <= 0) {
             DropItem();
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            GameObject blood = Instantiate(bloodStain, transform.position, Quaternion.identity);
-            Destroy(blood, 2f);
             Destroy(gameObject);
         }
     }

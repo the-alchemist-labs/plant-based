@@ -47,12 +47,12 @@ public class Player : MonoBehaviour
         health = health - damageAmount < 0 ? 0 : health - damageAmount;
     }
 
-    void HealHealth(int healAmount) {
+    public void HealHealth(int healAmount) {
         int totalHealth = health + healAmount;
         health = totalHealth > maxHealth ? maxHealth : totalHealth;
     }
 
-    void RefuelFuel(int refuelAmount)
+    public void RefuelFuel(int refuelAmount)
     {
         int totalFuel = fuel + refuelAmount;
         fuel = totalFuel > maxFuel ? maxFuel : totalFuel;
