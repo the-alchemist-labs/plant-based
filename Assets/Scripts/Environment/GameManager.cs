@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public float scrollSpeed; 
+    public float speedModifier = 0.10f;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
 
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 
         if (player.GetComponent<Player>().health <= 0 || player.GetComponent<Player>().fuel <= 0)
         {
-            GameOver();
+            // GameOver();
         }
     }
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
             score += scoreGain;
             scoreText.text = "Score: " + score.ToString();
             scoreGainTimer = 0f;
+            scrollSpeed += scoreInterval * speedModifier;
         }
 
     }

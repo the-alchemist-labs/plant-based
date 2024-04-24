@@ -4,21 +4,20 @@ public class MoveLeft : MonoBehaviour
 {
     private Vector3 StartPos; // The starting position of the background
     private float repeatWidth;
-    private float backgroundSpeed;
     // Start is called before the first frame update
     void Start()
     {
         StartPos = transform.position; // the start position of the background
         repeatWidth = GetComponent<BoxCollider2D>().size.x / 2;
-        backgroundSpeed = GameObject
-        .FindGameObjectWithTag("GameController")
-        .GetComponent<GameManager>()
-        .scrollSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float backgroundSpeed = GameObject
+        .FindGameObjectWithTag("GameController")
+        .GetComponent<GameManager>()
+        .scrollSpeed;
         if (backgroundSpeed > 1) //as long as speed is higher then 1, so no negetive speed will work
         {
             transform.Translate(Vector3.left * Time.deltaTime * backgroundSpeed); //Some unity thingy that makes the background move

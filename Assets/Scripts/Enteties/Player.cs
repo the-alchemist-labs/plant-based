@@ -10,16 +10,15 @@ public class Player : MonoBehaviour
     public int maxFuel = 10;
     public float fuelConsumptionInterval = 5f;
     public int fuelConsumptionRate = 1;
-
-    private Rigidbody2D rb;
-    private Vector2 moveAmount;
-    private float fuelConsumptionTimer = 0f;
-
     public Image[] tires;
     public Sprite fullTire;
     public Sprite emptyTire;
 
+    private Rigidbody2D rb;
+    private Vector2 moveAmount;
+    private float fuelConsumptionTimer = 0f;
     private Slider feulBar;
+    private new AudioSource audio;
 
     void Start()
     {
@@ -27,6 +26,7 @@ public class Player : MonoBehaviour
         feulBar = FindObjectOfType<Slider>();
         feulBar.maxValue = maxFuel;
         feulBar.value = fuel;
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -56,12 +56,15 @@ public class Player : MonoBehaviour
         feulBar.value = fuel;
     }
 
-    public void TakeDamage(int damageAmount) {
+    public void TakeDamage(int damageAmount)
+    {
         health = health - damageAmount < 0 ? 0 : health - damageAmount;
         UpdateTireUI(health);
+        audio.Play();
     }
 
-    public void HealHealth(int healAmount) {
+    public void HealHealth(int healAmount)
+    {
         int totalHealth = health + healAmount;
         health = totalHealth > maxHealth ? maxHealth : totalHealth;
     }
@@ -72,14 +75,15 @@ public class Player : MonoBehaviour
         fuel = totalFuel > maxFuel ? maxFuel : totalFuel;
     }
 
-    void UpdateTireUI (int currentHealth)
+    void UpdateTireUI(int currentHealth)
     {
-        for (int i = 0; i < tires.Length; i++) {
+        for (int i = 0; i < tires.Length; i++)
+        {
             if (i < currentHealth)
             {
                 tires[i].sprite = fullTire;
             }
             else tires[i].sprite = emptyTire;
-        } 
+        }
     }
 }

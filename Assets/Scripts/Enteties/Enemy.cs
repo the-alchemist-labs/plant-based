@@ -64,6 +64,8 @@ public class Enemy : Immobile
 
         audio.Play();
         GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
         Destroy(gameObject, audio.clip.length);
     }
 }
