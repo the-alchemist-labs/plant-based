@@ -260,7 +260,6 @@ MonoBehaviour:
   timeBetweenWaves: 2
   timeBetweenSpawns: 1
   count: 2
-  parent: {fileID: 1563782482}
 --- !u!4 &126972241
 Transform:
   m_ObjectHideFlags: 0
@@ -2736,7 +2735,7 @@ GameObject:
   - component: {fileID: 1563782484}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
