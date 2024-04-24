@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     public int health;
     public int damage;
+    public int waveMinLevel = 0;
 
     public ItemDrop[] drops;
 
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
 
     void Death(bool shouldDropItem = true)
     {
+        print(gameObject);
         if (shouldDropItem)
         {
             DropItem();

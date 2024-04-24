@@ -1,28 +1,24 @@
 using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 public class WaveSpawner : MonoBehaviour {
 
-    [System.Serializable]
-    public class Wave {
-        public Enemy[] enemies;
-        public int count;
-        public float timeBetweenSpawn;
-    }
-
-    public Wave[] waves;
+    public Enemy[] enemies;
     public Transform[] spawnPoints;
     public float timeBetweenWaves;
+    public float timeBetweenSpawns;
+    public int count;
+
     public Transform parent;
 
-    private Wave currentWave;
-    private int currentWaveIndex;
+    private int waveCounter = 0;
     private Transform player;
     private bool isFinishedSpawning;
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(StartNextWave(currentWaveIndex));
+        StartCoroutine(StartNextWave(waveCounter));
 
     }
 
@@ -32,31 +28,28 @@ public class WaveSpawner : MonoBehaviour {
     }
 
     IEnumerator SpwanWave(int index) {
-        currentWave = waves[index];
-        for (int i = 0; i < currentWave.count; i++) {
+        for (int i = 0; i < count; i++) {
             if (player == null) {
                 yield break;
             }
 
-            Enemy randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
+            Enemy[] filteredEnemies = enemies.Where(e => waveCounter >= e.waveMinLevel).ToArray();
+            Enemy randomEnemy = filteredEnemies[Random.Range(0, filteredEnemies.Length)];
             Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(randomEnemy, randomSpawnPoint.position, randomSpawnPoint.rotation,parent);
 
-            isFinishedSpawning = i == (currentWave.count -1);
+            isFinishedSpawning = i == (count -1);
  
-
-            yield return new WaitForSeconds(currentWave.timeBetweenSpawn);
+            yield return new WaitForSeconds(timeBetweenSpawns);
         }
     }  
 
     void Update() {
         if (isFinishedSpawning == true && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             isFinishedSpawning = false;
-
-            if (currentWaveIndex + 1 < waves.Length) {
-                currentWaveIndex++;
-                StartCoroutine(StartNextWave(currentWaveIndex));
-            }
+            waveCounter++;
+            count += waveCounter;
+            StartCoroutine(StartNextWave(waveCounter));
         }
     }
 }
