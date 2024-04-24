@@ -611,6 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 607541927}
   highscoreText: {fileID: 1271030292}
+  player: {fileID: 903902570}
   scoreGain: 10
   scoreInterval: 1
 --- !u!4 &379147480

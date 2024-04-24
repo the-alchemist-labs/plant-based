@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
 
+    public GameObject player;
     public int scoreGain = 10;
     public float scoreInterval = 5f;
 
@@ -29,8 +32,18 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         UpdateScore();
+
+        if (player.GetComponent<Player>().health <= 0 || player.GetComponent<Player>().fuel <= 0)
+        {
+            GameOver();
+        }
     }
 
+
+    void GameOver()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
 
     void UpdateScore()
     {
@@ -43,4 +56,6 @@ public class ScoreManager : MonoBehaviour
         }
 
     }
+
+
 }
