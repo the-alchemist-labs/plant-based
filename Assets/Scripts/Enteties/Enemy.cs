@@ -3,7 +3,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [System.Serializable]
-    public class ItemDrop {
+    public class ItemDrop
+    {
         public int dropRate;
         public GameObject item;
     }
@@ -15,34 +16,42 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector]
     public Transform player;
+    private new AudioSource audio;
 
-    public virtual void Start(){
+    public virtual void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        audio = GetComponent<AudioSource>();
     }
 
-    public void TakeDamage(int damageAmount) {
+    public void TakeDamage(int damageAmount)
+    {
         health -= damageAmount;
-        if (health <= 0) {
-            AudioSource audio = GetComponent<AudioSource>();
+        if (health <= 0)
+        {
             audio.Play();
             DropItem();
             Destroy(gameObject, audio.clip.length);
         }
     }
 
-    private void DropItem() {
+    private void DropItem()
+    {
         int randomNumber = Random.Range(0, 101);
         ItemDrop drop = drops[Random.Range(0, drops.Length)];
-        if (randomNumber < drop.dropRate) {
+        if (randomNumber < drop.dropRate)
+        {
             Instantiate(drop.item, transform.position, transform.rotation);
         }
     }
 
-        private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Player")) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
+            audio.Play();
             Destroy(gameObject);
         }
     }
 }
- 
