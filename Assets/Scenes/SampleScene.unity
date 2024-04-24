@@ -246,7 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies: []
+  - enemies:
+    - {fileID: 461114848535937540, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
     count: 2
     timeBetweenSpawn: 0
   spawnPoints:
@@ -2324,6 +2325,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 763388251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.942}
+--- !u!1001 &1449011582952856694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610901532390062694, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325193130461853029, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
+      propertyPath: m_Name
+      value: CabbegeMonster
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5903d70b3757fcd4d991c9bc43cf7c32, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2335,3 +2393,4 @@ SceneRoots:
   - {fileID: 126972241}
   - {fileID: 164340656}
   - {fileID: 793096104}
+  - {fileID: 1449011582952856694}
