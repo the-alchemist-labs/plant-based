@@ -11,6 +11,8 @@ public class Immobile : MonoBehaviour
         .FindGameObjectWithTag("Background")
         .GetComponent<MoveLeft>()
         .speed;
+
+        Destroy(gameObject, 10);
     }
 
     void Update()
