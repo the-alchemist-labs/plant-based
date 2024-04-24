@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public int fuel;
     public float speed = 10;
     public int maxHealth = 10;
+    public int maxFuel = 10;
     public float fuelConsumptionInterval = 5f;
     public int fuelConsumptionRate = 1;
 
@@ -43,11 +44,17 @@ public class Player : MonoBehaviour
     }
 
     void TakeDamage(int damageAmount) {
-        health = health - damageAmount > 0 ? 0 : health - damageAmount;
+        health = health - damageAmount < 0 ? 0 : health - damageAmount;
     }
 
     void HealHealth(int healAmount) {
         int totalHealth = health + healAmount;
         health = totalHealth > maxHealth ? maxHealth : totalHealth;
+    }
+
+    void RefuelFuel(int refuelAmount)
+    {
+        int totalFuel = fuel + refuelAmount;
+        fuel = totalFuel > maxFuel ? maxFuel : totalFuel;
     }
 }
