@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,9 +15,18 @@ public class Player : MonoBehaviour
     private Vector2 moveAmount;
     private float fuelConsumptionTimer = 0f;
 
+    public Image[] tires;
+    public Sprite fullTire;
+    public Sprite emptyTire;
+
+    private Slider feulBar;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        feulBar = FindObjectOfType<Slider>();
+        feulBar.maxValue = maxFuel;
+        feulBar.value = fuel;
     }
 
     void Update()
@@ -24,6 +34,7 @@ public class Player : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveAmount = moveInput.normalized * speed;
 
+        UpdateTireUI(health);
         UpdateFuel();
     }
 
@@ -41,10 +52,13 @@ public class Player : MonoBehaviour
             fuel -= fuelConsumptionRate;
             fuelConsumptionTimer = 0f;
         }
+
+        feulBar.value = fuel;
     }
 
     void TakeDamage(int damageAmount) {
         health = health - damageAmount < 0 ? 0 : health - damageAmount;
+        UpdateTireUI(health);
     }
 
     public void HealHealth(int healAmount) {
@@ -56,5 +70,16 @@ public class Player : MonoBehaviour
     {
         int totalFuel = fuel + refuelAmount;
         fuel = totalFuel > maxFuel ? maxFuel : totalFuel;
+    }
+
+    void UpdateTireUI (int currentHealth)
+    {
+        for (int i = 0; i < tires.Length; i++) {
+            if (i < currentHealth)
+            {
+                tires[i].sprite = fullTire;
+            }
+            else tires[i].sprite = emptyTire;
+        } 
     }
 }
