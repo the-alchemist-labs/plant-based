@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -10,8 +11,10 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0)) {
-            if (Time.time >= shotTime) {
+        if (Input.GetMouseButton(0))
+        {
+            if (Time.time >= shotTime)
+            {
                 Instantiate(projectile, shotPoint.position, Quaternion.Euler(0, 0, -90));
                 shotTime = Time.time + timeBetweenShots;
             }
